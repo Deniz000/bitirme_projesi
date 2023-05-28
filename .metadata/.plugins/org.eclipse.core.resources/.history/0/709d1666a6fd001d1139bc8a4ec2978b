@@ -1,0 +1,25 @@
+package com.freeSite.business.dtos.requests;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import com.freeSite.entities.Candidate;
+import com.freeSite.entities.Experience;
+import com.freeSite.entities.JobSeeker;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class CreateCandidateRequest {
+	private int jobSeekerId;
+	private String coverLetter;
+	private byte[] image;
+	private String github;
+	private String linkedIn;
+}

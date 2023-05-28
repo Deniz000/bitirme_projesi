@@ -1,0 +1,7 @@
+package com.freeSite.core.results;
+
+public class Result {
+	private boolean success;
+	private String message;
+	
+}

@@ -1,0 +1,5 @@
+package com.freeSite.dataAccess.abstracts;
+
+public interface ExperienceRepository {
+
+}

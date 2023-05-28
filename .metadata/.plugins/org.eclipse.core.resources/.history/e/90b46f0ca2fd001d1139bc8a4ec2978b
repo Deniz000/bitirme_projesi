@@ -1,0 +1,5 @@
+package com.freeSite.core.results;
+
+public class ErrorResult {
+
+}
