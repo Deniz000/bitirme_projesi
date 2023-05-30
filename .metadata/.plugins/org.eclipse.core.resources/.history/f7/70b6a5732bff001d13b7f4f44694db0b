@@ -1,0 +1,5 @@
+package com.freeSite.core.cloudinary;
+
+public interface FileUploadService {
+
+}

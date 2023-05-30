@@ -47,7 +47,7 @@ public class JobSeekerController {
 	}
 
 	
-	@PutMapping()
+	@PutMapping
 	public ResponseEntity<Result> update(@Valid UpdateJobSeekerRequest jobSeekerRequest) throws Exception{
 		Result result = this.jobSeekerService.update(jobSeekerRequest);
 		return ResponseEntity.ok(result);

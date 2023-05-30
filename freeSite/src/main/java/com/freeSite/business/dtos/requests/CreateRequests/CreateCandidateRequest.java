@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateCandidateRequest {
+    private int jobSeekerId;
 	private String coverLetter;
 	private byte[] image;  //şimdilk boş geçilebilecek. 
 	private String github;

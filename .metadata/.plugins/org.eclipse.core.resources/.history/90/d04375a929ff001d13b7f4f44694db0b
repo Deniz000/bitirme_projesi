@@ -1,0 +1,8 @@
+package com.freeSite.api.cloudinary;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class FileUploadController {
+
+}

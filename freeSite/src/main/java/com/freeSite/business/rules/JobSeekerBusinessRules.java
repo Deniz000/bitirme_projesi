@@ -17,10 +17,17 @@ public class JobSeekerBusinessRules {
 		}
 	}
 
-	public void checkIfEMailExist(String email) throws Exception {
+	public void checkIfEmailExist(String email) throws Exception {
 		if (this.jobSeekerRepository.existsByEmail(email)) {
 			throw new Exception("Bu mail adresi sistemde zaten kayıtlı");
 		}
 	}
+
+	public void checkIfNationalIdentityExist(String email) throws Exception {
+		if (this.jobSeekerRepository.existsByNationalIdentity(email)) {
+			throw new Exception("Bu T.C. kimlik numarası sistemde zaten kayıtlı");
+		}
+	}
+
 
 }

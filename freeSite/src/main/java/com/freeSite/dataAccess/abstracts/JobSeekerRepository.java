@@ -7,5 +7,7 @@ import com.freeSite.entities.JobSeeker;
 public interface JobSeekerRepository extends JpaRepository<JobSeeker,Integer>{
 	
 	boolean existsByEmail(String email);
+	boolean existsByNationalIdentity(String id);
+
 
 }

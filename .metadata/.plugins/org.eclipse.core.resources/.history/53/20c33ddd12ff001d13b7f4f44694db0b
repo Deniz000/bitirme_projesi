@@ -1,0 +1,33 @@
+package com.freeSite.business.rules;
+
+import org.springframework.stereotype.Service;
+
+import com.freeSite.dataAccess.abstracts.JobSeekerRepository;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class JobSeekerBusinessRules {
+	private final JobSeekerRepository jobSeekerRepository;
+
+	public void checkIfJobSeekerExists(int jobSeekerId) throws Exception {
+		if (!this.jobSeekerRepository.existsById(jobSeekerId)) {
+			throw new Exception("Kullanıcı bulunamadı");
+		}
+	}
+
+	public void checkIfEMailExist(String email) throws Exception {
+		if (this.jobSeekerRepository.existsByEmail(email)) {
+			throw new Exception("Bu mail adresi sistemde zaten kayıtlı");
+		}
+	}
+
+	public void checkIfNationalIdentityExist(String email) throws Exception {
+		if (this.jobSeekerRepository.existsByNationalIdentity(email)) {
+			throw new Exception("Bu T.C. kimlik numarası sistemde zaten kayıtlı");
+		}
+	}
+
+
+}

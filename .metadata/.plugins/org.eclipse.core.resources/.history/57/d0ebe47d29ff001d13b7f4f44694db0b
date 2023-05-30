@@ -1,0 +1,5 @@
+package com.freeSite.api.cloudinary;
+
+public class FileUploadController {
+
+}

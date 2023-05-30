@@ -1,0 +1,9 @@
+package com.freeSite.business.dtos.responses;
+
+public class GetAllCandidateResponse {
+	private int jobSeekerId;
+	private String coverLetter;
+	private byte[] image; // şimdilk boş geçilebilecek.
+	private String github;
+	private String linkedIn;
+}

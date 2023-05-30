@@ -30,7 +30,8 @@ public class JobSeekerManager implements JobSeekerService {
 
 	@Override
 	public Result add(CreateJobSeekerRequest jobSeekerRequest) throws Exception {
-		this.businesRules.checkIfEMailExist(jobSeekerRequest.getEmail());
+		this.businesRules.checkIfEmailExist(jobSeekerRequest.getEmail());
+		this.businesRules.checkIfNationalIdentityExist(jobSeekerRequest.getNationalIdentity());
 		
 		JobSeeker jobSeeker = this.modelMapper.forRequest().map(jobSeekerRequest, JobSeeker.class);
 		this.jobSeekerRepository.save(jobSeeker);
@@ -57,7 +58,7 @@ public class JobSeekerManager implements JobSeekerService {
 	public Result update(UpdateJobSeekerRequest jobSeekerRequest) throws Exception {
 		this.businesRules.checkIfJobSeekerExists(jobSeekerRequest.getId());
 
-		this.businesRules.checkIfEMailExist(jobSeekerRequest.getEmail());
+		this.businesRules.checkIfEmailExist(jobSeekerRequest.getEmail());
 
 		JobSeeker jobSeeker = this.modelMapper.forRequest().map(jobSeekerRequest, JobSeeker.class);
 

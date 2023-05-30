@@ -1,0 +1,19 @@
+package com.freeSite.api.cloudinary;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+//restapi ye gerek yok direk bunu kullanıyoruz  
+@Controller
+@RequestMapping("/")
+public class FileUploadController {
+
+	public String home() {
+		return "home";
+	}
+	@PostMapping("/upload")
+	public String uploadFile() {
+		
+	}
+}

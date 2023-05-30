@@ -1,3 +1,7 @@
 1685439624016	Rename type 'GetAllJobSeekerResponses'
 1685450494268	Rename type 'UpdateJobSeeekerRequest'
 1685453563006	Rename method 'checkIfEmailExists'
+1685469495616	Rename type 'GetAllCandidateResponses'
+1685476844084	Rename compilation unit 'CloundinaryConfig.java'
+1685477404874	Rename package 'com.freeSite.core.config'
+1685480263234	Delete element

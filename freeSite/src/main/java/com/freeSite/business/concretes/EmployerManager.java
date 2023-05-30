@@ -32,6 +32,7 @@ public class EmployerManager implements EmployerService {
 	public Result add(CreateEmployerRequest employerRequest) throws Exception {
 
 		this.businessRules.checkIfEMailExist(employerRequest.getEmail());
+		this.businessRules.checkIfEmailMatchAndWebSite(employerRequest.getEmail(), employerRequest.getWebSiteAddress());
 
 		Employer employer = this.modelMapper.forRequest().map(employerRequest, Employer.class);
 		this.employerRepository.save(employer);
