@@ -43,7 +43,6 @@ public class Candidate {
     private JobSeeker jobSeeker;
     
     private String coverLetter;
-    private byte[] image;
     private String github;
     private String linkedIn;
     

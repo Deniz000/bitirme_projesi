@@ -1,0 +1,6 @@
+package com.freeSite.business.abstracts;
+
+public interface CandidateService {
+	
+
+}
