@@ -1,0 +1,20 @@
+package com.freeSite.business.abstracts;
+
+import java.util.List;
+
+import com.freeSite.business.dtos.requests.CreateRequests.CreateJobSeekerRequest;
+import com.freeSite.business.dtos.requests.DeleteRequests.DeleteJobSeekerRequest;
+import com.freeSite.business.dtos.requests.UpdateRequests.UpdateJobSeekerRequest;
+import com.freeSite.business.dtos.responses.GetAllJobSeekerResponse;
+import com.freeSite.core.results.DataResult;
+import com.freeSite.core.results.Result;
+
+public interface JobSeekerService {
+	public Result add(CreateJobSeekerRequest jobSeekerRequest);
+	public Result update(UpdateJobSeekerRequest jobSeekerRequest);
+	public Result deleteById(DeleteJobSeekerRequest jobSeekerRequest) throws Exception;
+	public DataResult<List<GetAllJobSeekerResponse>> getAll();
+
+
+
+}

@@ -1,0 +1,15 @@
+package com.freeSite.business.abstracts;
+
+import java.util.List;
+
+import com.freeSite.business.dtos.requests.CreateRequests.CreateJobSeekerRequest;
+import com.freeSite.business.dtos.responses.GetAllJobSeekerResponse;
+import com.freeSite.core.results.DataResult;
+import com.freeSite.core.results.Result;
+
+public interface JobSeekerService {
+	public Result createJobSeeker(CreateJobSeekerRequest jobSeekerRequest);
+	public DataResult<List<GetAllJobSeekerResponse>> getAll();
+
+
+}

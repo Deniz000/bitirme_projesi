@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -32,8 +34,14 @@ public class Candidate {
     @OneToMany(mappedBy="candidate", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<School> schools;
     
-    @OneToOne(mappedBy="candidate")
+    @OneToOne
+	@JoinTable(name = "job_seekers_candidate", 
+    joinColumns = 
+      { @JoinColumn(name = "candidate_id", referencedColumnName = "id") },
+    inverseJoinColumns = 
+      { @JoinColumn(name = "job_seeker_id", referencedColumnName = "id") })
     private JobSeeker jobSeeker;
+    
     private String coverLetter;
     private byte[] image;
     private String github;

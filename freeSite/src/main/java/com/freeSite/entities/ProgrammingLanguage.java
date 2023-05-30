@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -25,10 +25,11 @@ public class ProgrammingLanguage {
 	private int id;
     
     @ManyToOne
-    @JoinTable(name="technology_id")
+    @JoinColumn(name = "technology_id")
     private Technology technology;
-    
+
     private String name;
+    
     private String level; // -iyi -orta -başlangıç
 }
 

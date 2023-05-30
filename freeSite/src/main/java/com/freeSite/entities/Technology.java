@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -29,10 +29,10 @@ public class Technology {
     private String name;
     
     @OneToMany(mappedBy="technology")
-    private List<ProgrammingLanguage> languages;
+    private List<ProgrammingLanguage> programmingLanguages;
     
     @ManyToOne
-    @JoinTable(name="experience_id")
+    @JoinColumn(name="experience_id")
     private Experience experience;
     
 

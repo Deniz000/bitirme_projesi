@@ -1,0 +1,24 @@
+package com.freeSite.business.dtos.responses;
+
+import java.util.List;
+
+import com.freeSite.entities.Employer;
+import com.freeSite.entities.Experience;
+import com.freeSite.entities.JobPosting;
+import com.freeSite.entities.School;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class GetAllEmployerResponse {
+	private int id;
+	private String email;
+	private String password;
+	private String companyName;
+	private String webSiteAddress;
+	private String phoneNumber;
+}

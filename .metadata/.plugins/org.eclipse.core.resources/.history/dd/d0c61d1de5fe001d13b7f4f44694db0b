@@ -1,0 +1,15 @@
+package com.freeSite.business.rules;
+
+import org.springframework.stereotype.Service;
+
+import com.freeSite.dataAccess.abstracts.JobSeekerRepository;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class JobSeekerBusinessRules {
+	private final JobSeekerRepository jobSeekerRepository;
+	
+
+}

@@ -1,0 +1,7 @@
+package com.freeSite.business.concretes;
+
+import com.freeSite.business.abstracts.JobSeekerService;
+
+public class JobSeekerManager implements JobSeekerService{
+
+}

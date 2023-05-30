@@ -1,0 +1,23 @@
+package com.freeSite.api;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.freeSite.business.abstracts.JobSeekerService;
+import com.freeSite.business.dtos.requests.CreateRequests.CreateJobSeekerRequest;
+import com.freeSite.core.results.Result;
+
+import lombok.AllArgsConstructor;
+
+@RestController
+@RequestMapping("/jobSeeker")
+@AllArgsConstructor
+public class JobSeekerController {
+	private final JobSeekerService jobSeekerService;
+
+	public ResponseEntity<Result> add(CreateJobSeekerRequest jobSeekerRequest){
+		Result result = this.jobSeekerService.add(jobSeekerRequest);
+		return ResponseEntity.ok(result);
+	}
+}

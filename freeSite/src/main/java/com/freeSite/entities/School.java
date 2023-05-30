@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -28,11 +27,11 @@ public class School {
 	private int id;
 
 	@ManyToOne
-	@JoinTable(name = "employer_id")
+	@JoinColumn(name = "employer_id")
 	private Employer employer;
 
 	@ManyToOne
-	@JoinTable(name = "candidate_id")
+	@JoinColumn(name = "candidate_id")
 	private Candidate candidate;
 	
 	@OneToOne

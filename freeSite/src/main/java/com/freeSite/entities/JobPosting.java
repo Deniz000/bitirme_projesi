@@ -28,19 +28,20 @@ public class JobPosting {
 	private int id;
     
     @ManyToOne
-    @JoinTable(name="employer_id")
+    @JoinColumn(name="employer_id")
     private Employer employer;
     
     @ManyToOne
-    @JoinTable(name="job_position_id")
+    @JoinColumn(name="job_position_id")
     private JobPosition jobPosition;
     
     @ManyToMany
     @JoinTable(
-    		name="cities", 
+    		name="job_postings_cities", 
     		joinColumns= @JoinColumn(name="job_posting_id"),
     		inverseJoinColumns=@JoinColumn(name="city_id"))
     private List<City> cities;
+    
     private int maxSalary;
     private int minSalary;
     private int openPositionCount;

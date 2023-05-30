@@ -1,0 +1,23 @@
+package com.freeSite.business.concretes;
+
+import org.springframework.stereotype.Service;
+
+import com.freeSite.business.abstracts.JobSeekerService;
+import com.freeSite.business.dtos.requests.CreateRequests.CreateJobSeekerRequest;
+import com.freeSite.core.results.Result;
+import com.freeSite.dataAccess.abstracts.JobSeekerRepository;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class JobSeekerManager implements JobSeekerService{
+
+	private JobSeekerRepository jobSeekerRepository;
+	@Override
+	public Result createJobSeeker(CreateJobSeekerRequest jobSeekerRequest) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

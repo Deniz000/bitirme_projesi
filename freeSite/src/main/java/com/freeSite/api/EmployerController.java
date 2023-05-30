@@ -1,0 +1,59 @@
+package com.freeSite.api;
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.freeSite.business.abstracts.EmployerService;
+import com.freeSite.business.dtos.requests.CreateRequests.CreateEmployerRequest;
+import com.freeSite.business.dtos.requests.UpdateRequests.UpdateEmployerRequest;
+import com.freeSite.business.dtos.responses.GetAllEmployerResponse;
+import com.freeSite.core.results.DataResult;
+import com.freeSite.core.results.Result;
+
+import lombok.AllArgsConstructor;
+
+@RestController
+@RequestMapping("/employers")
+@AllArgsConstructor
+public class EmployerController {
+	private EmployerService employerService;
+	
+
+	@PostMapping
+	public ResponseEntity<Result> add(@Valid CreateEmployerRequest employerRequest) throws Exception{
+		Result result = this.employerService.add(employerRequest);
+		return ResponseEntity.ok(result);
+	}
+	
+	@GetMapping
+	public ResponseEntity<DataResult<List<GetAllEmployerResponse>>> getAll(){
+		DataResult<List<GetAllEmployerResponse>> responses= this.employerService.getAll();
+		return ResponseEntity.status(HttpStatus.OK).body(responses);
+	}
+	
+	@DeleteMapping("/employer/{id}")
+	public ResponseEntity<Result> deleteById(@PathVariable int id) throws Exception{
+		Result result = this.employerService.deleteById(id);
+		return ResponseEntity.ok(result);
+	}
+
+	
+	@PutMapping()
+	public ResponseEntity<Result> update(@Valid UpdateEmployerRequest employerRequest) throws Exception{
+		Result result = this.employerService.update(employerRequest);
+		return ResponseEntity.ok(result);
+	}
+
+
+}

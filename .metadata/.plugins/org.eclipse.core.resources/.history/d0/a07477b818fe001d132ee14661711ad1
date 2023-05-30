@@ -1,0 +1,9 @@
+package com.freeSite.business.abstracts;
+
+import com.freeSite.business.dtos.requests.CreateRequests.CreateJobSeekerRequest;
+import com.freeSite.core.results.Result;
+
+public interface JobSeekerService {
+	public Result createJobSeeker(CreateJobSeekerRequest jobSeekerRequest);
+
+}

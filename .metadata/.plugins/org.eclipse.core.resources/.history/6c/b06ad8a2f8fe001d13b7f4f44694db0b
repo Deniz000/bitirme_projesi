@@ -1,0 +1,29 @@
+package com.freeSite.business.rules;
+
+import org.springframework.stereotype.Service;
+
+import com.freeSite.dataAccess.abstracts.EmployerRepository;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class EmployerBusinessRules {
+	
+	private EmployerRepository employerRepository;
+	
+
+	public void checkIfEMailExist(String email) throws Exception {
+		if (this.employerRepository.existsByEMail(email)) {
+			throw new Exception("Email zaten var");
+		}
+	}
+	
+
+	public void checkIfJobSeekerExists(int employerId) throws Exception {
+		if(!this.employerRepository.existsById(employerId)) {
+			throw new Exception("Kullanıcı bulunamadı");
+		}
+	}
+
+}

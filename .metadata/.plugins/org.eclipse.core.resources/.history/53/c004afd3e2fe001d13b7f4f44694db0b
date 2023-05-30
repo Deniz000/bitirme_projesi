@@ -1,0 +1,18 @@
+package com.freeSite.business.dtos.requests.DeleteRequests;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class DeleteJobSeekerRequest {
+
+	private String firstName;
+	private String lastName;
+//	private String nationalIdentity;
+//	private LocalDate birthYear;
+//	private String email;
+//	private String password;
+}

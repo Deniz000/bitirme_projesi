@@ -6,5 +6,6 @@ import com.freeSite.entities.Employer;
 
 public interface EmployerRepository extends JpaRepository<Employer,Integer>{
 
+	boolean existsByEmail(String email);
 
 }
