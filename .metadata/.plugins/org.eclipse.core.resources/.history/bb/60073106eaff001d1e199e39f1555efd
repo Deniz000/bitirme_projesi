@@ -1,0 +1,50 @@
+package com.freeSite.business.concretes;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.freeSite.business.abstracts.JobPositionService;
+import com.freeSite.business.dtos.requests.CreateRequests.CreateJobPositionRequest;
+import com.freeSite.business.dtos.requests.UpdateRequests.UpdateJobPositionRequest;
+import com.freeSite.business.dtos.responses.GetAllJobPositionResponse;
+import com.freeSite.core.mappers.ModelMapperService;
+import com.freeSite.core.results.DataResult;
+import com.freeSite.core.results.Result;
+import com.freeSite.dataAccess.abstracts.JobPositionRepository;
+import com.freeSite.entities.JobPosition;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class JobPositionManager implements JobPositionService{
+	private JobPositionRepository jobPositionRepository;
+	private ModelMapperService modelMapperService;
+	
+	@Override
+	public Result add(CreateJobPositionRequest jobPositionRequest) throws Exception {
+		JobPosition jobPosition = this.modelMapperService.forRequest().map(jobPositionRequest, JobPosition.class);
+		this.jobPositionRepository.save(jobPosition);
+		return new SuccesResult("Data Kaydedildi");
+	}
+
+	@Override
+	public Result update(UpdateJobPositionRequest jobPositionRequest) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Result deleteById(int id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DataResult<List<GetAllJobPositionResponse>> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

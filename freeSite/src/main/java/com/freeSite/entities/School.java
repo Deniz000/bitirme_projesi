@@ -27,10 +27,6 @@ public class School {
 	private int id;
 
 	@ManyToOne
-	@JoinColumn(name = "employer_id")
-	private Employer employer;
-
-	@ManyToOne
 	@JoinColumn(name = "candidate_id")
 	private Candidate candidate;
 	
@@ -48,7 +44,6 @@ public class School {
 	
 	private float grade_avarage;
 	
-	private String type;
-	
+	private String type;	
 	
 }

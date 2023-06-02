@@ -1,0 +1,36 @@
+package com.freeSite.business.concretes;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.freeSite.business.abstracts.SchoolService;
+import com.freeSite.business.dtos.requests.CreateRequests.CreateSchoolRequest;
+import com.freeSite.business.dtos.responses.GetAllSchoolResponse;
+import com.freeSite.core.mappers.ModelMapperService;
+import com.freeSite.core.results.DataResult;
+import com.freeSite.core.results.Result;
+import com.freeSite.dataAccess.abstracts.SchoolRepository;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class SchoolManager implements SchoolService{
+
+	private SchoolRepository schoolRepository;
+	private ModelMapperService modelMapperService;
+	
+	@Override
+	public Result add(CreateSchoolRequest schoolRequest) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DataResult<List<GetAllSchoolResponse>> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,32 @@
+package com.freeSite.business.dtos.requests.CreateRequests;
+
+import java.time.LocalDate;
+
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+import com.freeSite.entities.Candidate;
+import com.freeSite.entities.City;
+
+public class CreateSchoolRequest {
+
+	private int id;
+	
+	private int candidateId;
+	
+	private int cityId;
+
+	private String name;
+
+	private String department;
+
+	private LocalDate startDay;
+
+	private LocalDate endDay;
+
+	private float grade_avarage;
+
+	private String type;
+
+}

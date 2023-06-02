@@ -1,0 +1,28 @@
+package com.freeSite.api;
+
+import javax.validation.Valid;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.freeSite.business.abstracts.JobPostingService;
+import com.freeSite.business.dtos.requests.CreateRequests.CreateJobPostingRequest;
+import com.freeSite.core.results.Result;
+
+import lombok.AllArgsConstructor;
+
+@RestController
+@RequestMapping("/jobposting")
+@AllArgsConstructor
+public class JobPostingController {
+	private JobPostingService jobPostingService;
+
+	@PostMapping
+	public ResponseEntity<Result> add(@Valid CreateJobPostingRequest jobPostingRequest) throws Exception{
+		Result result = this.jobPostingService.add(jobPostingRequest);
+		return ResponseEntity.ok(result);
+	}
+	
+}

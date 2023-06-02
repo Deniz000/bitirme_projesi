@@ -1,0 +1,18 @@
+package com.freeSite.business.dtos.responses;
+import java.time.LocalDate;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class GetAllExperienceResponse {
+	private int firstName;
+	private int companyName;
+	private int jobPositionId;
+	private LocalDate startDay;
+	private LocalDate endDay;
+}

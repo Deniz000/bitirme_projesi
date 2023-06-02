@@ -1,0 +1,42 @@
+package com.freeSite.business.concretes;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
+
+import com.freeSite.business.abstracts.ExperienceService;
+import com.freeSite.business.dtos.requests.CreateRequests.CreateExperienceRequest;
+import com.freeSite.business.dtos.responses.GetAllExperienceResponse;
+import com.freeSite.core.mappers.ModelMapperService;
+import com.freeSite.core.results.DataResult;
+import com.freeSite.core.results.Result;
+import com.freeSite.core.results.SuccessDataResult;
+import com.freeSite.core.results.SuccessResult;
+import com.freeSite.dataAccess.abstracts.ExperienceRepository;
+import com.freeSite.entities.Experience;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class ExperienceManager implements ExperienceService{
+	private ExperienceRepository experienceRepository;
+	private ModelMapperService modelMapperService;
+
+	@Override
+	public Result add(CreateExperienceRequest experienceRequest) throws Exception {
+		Experience experience = this.modelMapperService.forRequest().map(experienceRequest, Experience.class);
+		this.experienceRepository.save(experience);
+		return new SuccessResult("Data Kaydedildi");
+	}
+
+	@Override
+	public DataResult<List<GetAllExperienceResponse>> getAll() {
+		List<Experience> experiences = this.experienceRepository.findAll();
+		List<GetAllExperienceResponse> responses = experiences.stream()
+				.map(experience -> this.modelMapperService.forResponse().map(experience, GetAllExperienceResponse.class)).collect(Collectors.toList());
+		return new SuccessDataResult<List<GetAllExperienceResponse>>(responses, "Data Listelendi!");
+	}
+
+}

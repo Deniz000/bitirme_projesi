@@ -30,9 +30,6 @@ public class Employer {
 	@OneToMany(mappedBy="employer")
 	private List<Experience> experiences;
 
-	@OneToMany(mappedBy="employer")
-	private List<School> schools;
-	
 	private String email;
 	private String password;
 	private String companyName;

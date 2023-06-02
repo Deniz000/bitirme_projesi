@@ -1,0 +1,30 @@
+package com.freeSite.business.dtos.responses;
+
+import java.time.LocalDate;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class GetAllJobPostingResponse {
+	private int id;
+    private String positionName; 
+	private String companyName;
+	private String ccityName;
+    private int maxSalary;
+    private int minSalary;
+    private int openPositionCount;
+    private LocalDate publishDate;
+    private LocalDate applicationDeadline;
+    private String description;
+    private boolean isActive;
+    
+
+
+}

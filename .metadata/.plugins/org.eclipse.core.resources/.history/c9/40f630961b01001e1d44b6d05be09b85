@@ -1,0 +1,5 @@
+package com.freeSite.business.dtos.responses;
+
+public class GetAllProgrammingLanguageResponse {
+
+}

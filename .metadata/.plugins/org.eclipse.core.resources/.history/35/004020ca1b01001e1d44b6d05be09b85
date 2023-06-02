@@ -1,0 +1,11 @@
+package com.freeSite.business.dtos.requests.CreateRequests;
+
+public class CreateProgrammingLanguageRequest {
+
+	private String name;
+
+	private String level; 
+    
+    private int technologyId;
+}
+}

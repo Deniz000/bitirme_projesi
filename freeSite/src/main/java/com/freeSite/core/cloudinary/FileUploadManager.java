@@ -25,7 +25,7 @@ public class FileUploadManager implements FileUploadService{
 						Map.of("public_id",UUID.randomUUID().toString()))
 						.get("url")
 						.toString();
-		
+	
 		cloudinary.url().transformation(new Transformation().width(100).height(150).crop("fill")).generate("olympic_flag");
 		return url;
 	}

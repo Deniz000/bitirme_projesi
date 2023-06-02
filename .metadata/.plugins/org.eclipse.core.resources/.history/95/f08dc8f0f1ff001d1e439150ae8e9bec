@@ -1,0 +1,15 @@
+package com.freeSite.api;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.freeSite.business.abstracts.JobPostingService;
+
+import lombok.AllArgsConstructor;
+
+@RestController
+@RequestMapping("/jobposting")
+@AllArgsConstructor
+public class JobPostingController {
+	private JobPostingService jobPostingService;
+}

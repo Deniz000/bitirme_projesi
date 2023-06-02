@@ -1,16 +1,18 @@
 package com.freeSite.business.dtos.responses;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
-@AllArgsConstructor
+@Setter
+@Getter
 @NoArgsConstructor
+@AllArgsConstructor
 public class GetAllCandidateResponse {
+	private int id;
 	private int jobSeekerId;
 	private String coverLetter;
-	private byte[] image; // şimdilk boş geçilebilecek.
 	private String github;
 	private String linkedIn;
 }

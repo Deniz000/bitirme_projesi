@@ -1,12 +1,18 @@
 package com.freeSite.api;
 
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.freeSite.business.abstracts.CandidateService;
 import com.freeSite.business.dtos.requests.CreateRequests.CreateCandidateRequest;
+import com.freeSite.business.dtos.responses.GetAllCandidateResponse;
+import com.freeSite.core.results.DataResult;
 import com.freeSite.core.results.Result;
 
 import lombok.AllArgsConstructor;
@@ -15,13 +21,19 @@ import lombok.AllArgsConstructor;
 @RequestMapping("/candidate")
 @AllArgsConstructor
 public class CandidateController {
-	
+
 	private CandidateService candidateService;
-	
+
 	@PostMapping
-	public ResponseEntity<Result> add(CreateCandidateRequest candidateRequest) throws Exception{
+	public ResponseEntity<Result> add(CreateCandidateRequest candidateRequest) throws Exception {
 		Result result = this.candidateService.add(candidateRequest);
 		return ResponseEntity.ok(result);
+	}
+
+	@GetMapping
+	public ResponseEntity<DataResult<List<GetAllCandidateResponse>>> getAll() {
+		DataResult<List<GetAllCandidateResponse>> responses = this.candidateService.getAll();
+		return ResponseEntity.status(HttpStatus.OK).body(responses);
 	}
 
 }

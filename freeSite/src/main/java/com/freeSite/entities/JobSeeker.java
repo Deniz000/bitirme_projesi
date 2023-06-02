@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,6 +28,7 @@ public class JobSeeker {
 	private int id;
 	
 	@OneToOne(mappedBy="jobSeeker", cascade = CascadeType.ALL, orphanRemoval=true)
+	@JsonIgnore
 	private Candidate candidate;
 	
 	private String email;

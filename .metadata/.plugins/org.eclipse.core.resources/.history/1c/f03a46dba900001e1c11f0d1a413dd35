@@ -1,0 +1,20 @@
+package com.freeSite.business.concretes;
+
+import org.springframework.stereotype.Service;
+
+import com.freeSite.business.abstracts.ExperienceService;
+import com.freeSite.business.dtos.requests.CreateRequests.CreateExperienceRequest;
+import com.freeSite.core.results.Result;
+
+@Service
+public class ExperienceManager implements ExperienceService{
+
+	@Override
+	public Result add(CreateExperienceRequest experienceRequest) throws Exception {
+		System.out.print(experienceRequest.getTechnologies().get(0));
+		System.out.print(experienceRequest.getTechnologies().get(1));
+		System.out.print(experienceRequest.getTechnologies().get(2));
+		return null;
+	}
+
+}

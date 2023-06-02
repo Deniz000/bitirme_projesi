@@ -1,0 +1,18 @@
+package com.freeSite.business.dtos.requests.CreateRequests;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+public class CreateExperienceRequest {
+    private int candidateId;
+    private int employerId;
+    private int jobPositionId;
+    private List<String> technologies;
+    private LocalDate startDay;
+    private LocalDate endDay;
+}

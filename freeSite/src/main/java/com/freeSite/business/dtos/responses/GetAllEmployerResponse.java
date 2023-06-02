@@ -1,12 +1,14 @@
 package com.freeSite.business.dtos.responses;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
-@AllArgsConstructor
+@Setter
+@Getter
 @NoArgsConstructor
+@AllArgsConstructor
 public class GetAllEmployerResponse {
 	private int id;
 	private String email;

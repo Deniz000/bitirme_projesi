@@ -1,0 +1,9 @@
+package com.freeSite.business.abstracts;
+
+import com.freeSite.business.dtos.requests.CreateRequests.CreateTechnologyRequest;
+import com.freeSite.core.results.Result;
+
+public interface TechnologyService {
+	public Result add(CreateTechnologyRequest technologyRequest) throws Exception;
+
+}

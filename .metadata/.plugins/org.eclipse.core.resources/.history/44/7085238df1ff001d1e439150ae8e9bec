@@ -1,0 +1,22 @@
+package com.freeSite.business.concretes;
+
+import org.springframework.stereotype.Service;
+
+import com.freeSite.business.abstracts.JobPostingService;
+import com.freeSite.business.dtos.requests.CreateRequests.CreateJobPostingRequest;
+import com.freeSite.core.results.Result;
+import com.freeSite.dataAccess.abstracts.JobPostingRepository;
+
+import lombok.AllArgsConstructor;
+
+@Service 
+@AllArgsConstructor
+public class JobPostingManager implements JobPostingService{
+	private JobPostingRepository jobPostingRepository;
+	@Override
+	public Result add(CreateJobPostingRequest jobPostingRequest) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

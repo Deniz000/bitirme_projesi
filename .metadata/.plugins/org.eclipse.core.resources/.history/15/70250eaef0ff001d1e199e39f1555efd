@@ -1,0 +1,14 @@
+package com.freeSite.business.dtos.requests.CreateRequests;
+
+import java.time.LocalDate;
+
+public class CreateJobPostingRequest {
+
+    private int maxSalary;
+    private int minSalary;
+    private int openPositionCount;
+    private LocalDate publishDate;
+    private LocalDate applicationDeadline;
+    private String description;
+    private boolean isActive;
+}

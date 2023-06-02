@@ -1,0 +1,14 @@
+package com.freeSite.business.abstracts;
+
+import java.util.List;
+
+import com.freeSite.business.dtos.requests.CreateRequests.CreateExperienceRequest;
+import com.freeSite.business.dtos.responses.GetAllExperienceResponse;
+import com.freeSite.core.results.DataResult;
+import com.freeSite.core.results.Result;
+
+public interface ExperienceService {
+	public Result add(CreateExperienceRequest experienceRequest) throws Exception;
+	public DataResult<List<GetAllExperienceResponse>> getAll();
+
+}

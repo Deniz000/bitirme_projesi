@@ -1,0 +1,19 @@
+package com.freeSite.business.abstracts;
+
+import java.util.List;
+
+import com.freeSite.business.dtos.requests.CreateRequests.CreateJobPositionRequest;
+import com.freeSite.business.dtos.requests.UpdateRequests.UpdateJobPositionRequest;
+import com.freeSite.business.dtos.responses.GetAllJobSeekerResponse;
+import com.freeSite.core.results.DataResult;
+import com.freeSite.core.results.Result;
+
+public interface JobPositionService {
+
+	public Result add(CreateJobPositionRequest jobPositionRequest) throws Exception;
+	public Result update(UpdateJobPositionRequest jobPositionRequest) throws Exception;
+	public Result deleteById(int id) throws Exception;
+	public DataResult<List<GetAllJobSeekerResponse>> getAll();
+
+
+}
