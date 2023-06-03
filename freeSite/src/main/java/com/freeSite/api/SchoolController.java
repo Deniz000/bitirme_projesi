@@ -32,5 +32,10 @@ public class SchoolController {
 		return ResponseEntity.status(HttpStatus.OK).body(responses);
 	}
 	
+	@GetMapping("sorted")
+	public ResponseEntity<DataResult<List<GetAllSchoolResponse>>> getAllSorted() {
+		DataResult<List<GetAllSchoolResponse>> responses= this.schoolService.getAllSorted();
+		return ResponseEntity.status(HttpStatus.OK).body(responses);
+	}
 	
 }

@@ -1,0 +1,43 @@
+package com.freeSite.business.dtos.requests.filters;
+
+import java.time.LocalDate;
+
+import com.freeSite.entities.Candidate;
+import com.freeSite.entities.City;
+import com.freeSite.entities.Experience;
+import com.freeSite.entities.JobSeeker;
+import com.freeSite.entities.School;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class CandidateWithDetailsResponse {
+	private int id;
+
+	public String imageKey;
+	private String coverLetter;
+	private String github;
+	private String linkedIn;
+
+	private String companyName;
+	private String positionName;
+	private LocalDate startDay;
+	private LocalDate endDay;
+	private int cityId;
+
+	private String name;
+
+	private String department;
+
+	private LocalDate schoolStartDay;
+
+	private LocalDate schoolEndDay;
+
+	private float grade_avarage;
+
+	private String type;
+}

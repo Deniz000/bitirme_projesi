@@ -3,6 +3,7 @@ package com.freeSite.business.concretes;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.freeSite.business.abstracts.ExperienceService;
@@ -21,7 +22,7 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class ExperienceManager implements ExperienceService{
+public class ExperienceManager implements ExperienceService {
 	private ExperienceRepository experienceRepository;
 	private ModelMapperService modelMapperService;
 	private ExperienceBusinessRules businessRules;
@@ -29,16 +30,11 @@ public class ExperienceManager implements ExperienceService{
 	@Override
 	public Result add(CreateExperienceRequest experienceRequest) throws Exception {
 		Experience experience = this.modelMapperService.forRequest().map(experienceRequest, Experience.class);
+		if (experience.getEndDay() == null) {
+			experience.setEndDay("Devam ediyor");
+		}
 		this.experienceRepository.save(experience);
 		return new SuccessResult("Data Kaydedildi");
-	}
-
-	@Override
-	public DataResult<List<GetAllExperienceResponse>> getAll() {
-		List<Experience> experiences = this.experienceRepository.findAll();
-		List<GetAllExperienceResponse> responses = experiences.stream()
-				.map(experience -> this.modelMapperService.forResponse().map(experience, GetAllExperienceResponse.class)).collect(Collectors.toList());
-		return new SuccessDataResult<List<GetAllExperienceResponse>>(responses, "Data Listelendi!");
 	}
 
 	@Override
@@ -48,4 +44,21 @@ public class ExperienceManager implements ExperienceService{
 		return new SuccessResult("Data Silindi");
 	}
 
+	@Override
+	public DataResult<List<GetAllExperienceResponse>> getAll() {
+		List<Experience> experiences = this.experienceRepository.findAll();
+		List<GetAllExperienceResponse> responses = experiences.stream().map(
+				experience -> this.modelMapperService.forResponse().map(experience, GetAllExperienceResponse.class))
+				.collect(Collectors.toList());
+		return new SuccessDataResult<List<GetAllExperienceResponse>>(responses, "Data Listelendi!");
+	}
+
+	@Override
+	public DataResult<List<GetAllExperienceResponse>> getAllSorted() {
+		List<Experience> experiences = this.experienceRepository.findAll(Sort.by(Sort.Direction.DESC,"endDay"));
+		List<GetAllExperienceResponse> responses = experiences.stream().map(
+				experience -> this.modelMapperService.forResponse().map(experience, GetAllExperienceResponse.class))
+				.collect(Collectors.toList());
+		return new SuccessDataResult<List<GetAllExperienceResponse>>(responses, "Data Listelendi!");
+	}
 }

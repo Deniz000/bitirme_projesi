@@ -3,6 +3,7 @@ package com.freeSite.business.concretes;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.freeSite.business.abstracts.SchoolService;
@@ -28,6 +29,9 @@ public class SchoolManager implements SchoolService {
 	@Override
 	public Result add(CreateSchoolRequest schoolRequest) throws Exception {
 		School school = this.modelMapperService.forRequest().map(schoolRequest, School.class);
+		if(school.getEndDay()==null) {
+			school.setEndDay("Devam Ediyor");
+		}
 		this.schoolRepository.save(school);
 		return new SuccessResult("Data Eklendi");
 	}
@@ -42,4 +46,14 @@ public class SchoolManager implements SchoolService {
 		return new SuccessDataResult<List<GetAllSchoolResponse>>(responses, "Data Listelendi");
 
 	}
-}
+
+	@Override
+	public DataResult<List<GetAllSchoolResponse>> getAllSorted() {
+		List<School> schools = this.schoolRepository.findAll(Sort.by(Sort.Direction.DESC,"endDay"));
+		List<GetAllSchoolResponse> responses = schools.stream()
+				.map(school -> this.modelMapperService.forResponse().map(school, GetAllSchoolResponse.class))
+				.collect(Collectors.toList());
+
+		return new SuccessDataResult<List<GetAllSchoolResponse>>(responses, "Data Listelendi");
+
+	}	}

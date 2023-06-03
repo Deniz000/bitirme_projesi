@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.freeSite.business.abstracts.CandidateService;
 import com.freeSite.business.dtos.requests.CreateRequests.CreateCandidateRequest;
+import com.freeSite.business.dtos.requests.filters.CandidateWithDetailsResponse;
 import com.freeSite.business.dtos.responses.GetAllCandidateResponse;
 import com.freeSite.core.cloudinary.FileUploadService;
 import com.freeSite.core.mappers.ModelMapperService;
@@ -29,9 +30,10 @@ public class CandidateManager implements CandidateService {
 
 	@Override
 	public Result add(CreateCandidateRequest candidateRequest) throws Exception {
-		this.fileUpload.uploadFile(candidateRequest.getImage());
+		String imageUrl = this.fileUpload.uploadFile(candidateRequest.getImage());
 
 		Candidate candidate = this.modelMapperService.forRequest().map(candidateRequest, Candidate.class);
+		candidate.setImageUrl(imageUrl);
 		this.candidateRepository.save(candidate);
 		return new SuccessResult("Data Eklendi");
 	}
@@ -40,9 +42,18 @@ public class CandidateManager implements CandidateService {
 	public DataResult<List<GetAllCandidateResponse>> getAll() {
 		List<Candidate> candidates = this.candidateRepository.findAll();
 		List<GetAllCandidateResponse> responses = candidates.stream()
-				.map(candidate -> this.modelMapperService.forResponse().map(candidates, GetAllCandidateResponse.class))
+				.map(candidate -> this.modelMapperService.forResponse().map(candidate, GetAllCandidateResponse.class))
 				.collect(Collectors.toList());
 		return new SuccessDataResult<List<GetAllCandidateResponse>>(responses, "Data Listelendi!");
 	}
+
+	@Override
+	public DataResult<List<CandidateWithDetailsResponse>> getCandidateWithDetails(int candidateId) {
+	//	List<CandidateWithDetailsResponse> candidates = this.candidateRepository.getCandidateWithDetails(candidateId);
+//		List<CandidateWithDetailsResponse> responses = candidates.stream()
+//				.map(candidate -> this.modelMapperService.forResponse().map(candidate, CandidateWithDetailsResponse.class))
+//				.collect(Collectors.toList());
+		return null;
+				}
 
 }

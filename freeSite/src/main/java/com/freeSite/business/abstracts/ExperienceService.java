@@ -10,6 +10,7 @@ import com.freeSite.core.results.Result;
 public interface ExperienceService {
 	public Result add(CreateExperienceRequest experienceRequest) throws Exception;
 	public DataResult<List<GetAllExperienceResponse>> getAll();
+	public DataResult<List<GetAllExperienceResponse>> getAllSorted();
 	public Result deleteById(int id) throws Exception;
 
 }

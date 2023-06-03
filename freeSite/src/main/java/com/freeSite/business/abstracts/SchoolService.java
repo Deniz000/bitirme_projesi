@@ -10,5 +10,6 @@ import com.freeSite.core.results.Result;
 public interface SchoolService {
 	public Result add(CreateSchoolRequest schoolRequest) throws Exception;
 	public DataResult<List<GetAllSchoolResponse>> getAll();
+	public DataResult<List<GetAllSchoolResponse>> getAllSorted();
 
 }

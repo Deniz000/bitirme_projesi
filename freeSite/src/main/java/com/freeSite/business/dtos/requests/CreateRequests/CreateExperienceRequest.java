@@ -26,6 +26,5 @@ public class CreateExperienceRequest {
 	private LocalDate startDay;
 
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
-	@NotNull
 	private LocalDate endDay;
 }

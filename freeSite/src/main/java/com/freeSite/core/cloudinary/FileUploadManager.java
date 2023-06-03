@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.cloudinary.Cloudinary;
-import com.cloudinary.Transformation;
 
 import lombok.RequiredArgsConstructor;
 
@@ -18,17 +17,20 @@ public class FileUploadManager implements FileUploadService{
 	
 	private final Cloudinary cloudinary;
 	
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings("unchecked")
 	public String uploadFile(MultipartFile multipartFile) throws IOException{
-		String url =  cloudinary.uploader()
-				.upload(multipartFile.getBytes(),
-						Map.of("public_id",UUID.randomUUID().toString()))
-						.get("url")
-						.toString();
-	
-		cloudinary.url().transformation(new Transformation().width(100).height(150).crop("fill")).generate("olympic_flag");
+
+		Map<String, Object> uploadResult = cloudinary.uploader()
+		        .upload(multipartFile.getBytes(), Map.of("public_id", UUID.randomUUID().toString()));
+
+		//String publicId = uploadResult.get("public_id").toString();
+		String url = uploadResult.get("url").toString();
+
+		// çalışmıyo cloudinary.url().transformation(new Transformation().width(100).height(150).crop("fill")).generate("olympic_flag");
 		return url;
 	}
+
+	
 
 
 }

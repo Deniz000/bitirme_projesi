@@ -1,0 +1,53 @@
+package com.freeSite.api;
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.freeSite.business.abstracts.ExperienceService;
+import com.freeSite.business.dtos.requests.CreateRequests.CreateExperienceRequest;
+import com.freeSite.business.dtos.responses.GetAllExperienceResponse;
+import com.freeSite.core.results.DataResult;
+import com.freeSite.core.results.Result;
+
+import lombok.AllArgsConstructor;
+
+@RestController
+@RequestMapping("/experience")
+@AllArgsConstructor
+public class ExperienceController {
+	private final ExperienceService experienceService;
+
+	@PostMapping
+	public ResponseEntity<Result> add(@Valid CreateExperienceRequest experienceRequest) throws Exception {
+		Result result = this.experienceService.add(experienceRequest);
+		return ResponseEntity.ok(result);
+	}
+
+	@GetMapping
+	public ResponseEntity<DataResult<List<GetAllExperienceResponse>>> getAll() {
+		DataResult<List<GetAllExperienceResponse>> responses = this.experienceService.getAll();
+		return ResponseEntity.status(HttpStatus.OK).body(responses);
+	}
+
+	@GetMapping
+	public ResponseEntity<DataResult<List<GetAllExperienceResponse>>> getAllSorted() {
+		DataResult<List<GetAllExperienceResponse>> responses = this.experienceService.getAllSorted();
+		return ResponseEntity.status(HttpStatus.OK).body(responses);
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Result> deleteById(@PathVariable int id) throws Exception{
+		Result result = this.experienceService.deleteById(id);
+		return ResponseEntity.ok(result);
+	}
+}

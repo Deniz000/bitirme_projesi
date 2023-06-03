@@ -1,6 +1,5 @@
 package com.freeSite.entities;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -42,9 +41,13 @@ public class Experience {
     
     @OneToMany(mappedBy="experience")
     private List<Technology> technologies;
+    
 
-    private LocalDate startDay;
-    private LocalDate endDay;
+    @OneToMany(mappedBy="experience")
+    private List<ProgrammingLanguage> languages;
+
+    private String startDay;
+    private String endDay;
     
 
 }

@@ -1,0 +1,12 @@
+package com.freeSite.business.dtos.requests.filters;
+
+import java.time.LocalDate;
+
+public class CandidateWithDetailsResponse {
+	private String companyName;
+    private String positionName; 
+    private String technologyName;
+    private LocalDate startDay;
+    private LocalDate endDay;
+    
+}

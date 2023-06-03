@@ -38,6 +38,12 @@ public class ExperienceController {
 		DataResult<List<GetAllExperienceResponse>> responses = this.experienceService.getAll();
 		return ResponseEntity.status(HttpStatus.OK).body(responses);
 	}
+
+	@GetMapping("sorted")
+	public ResponseEntity<DataResult<List<GetAllExperienceResponse>>> getAllSorted() {
+		DataResult<List<GetAllExperienceResponse>> responses = this.experienceService.getAllSorted();
+		return ResponseEntity.status(HttpStatus.OK).body(responses);
+	}
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Result> deleteById(@PathVariable int id) throws Exception{

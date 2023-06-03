@@ -1,0 +1,51 @@
+package com.freeSite.core.cloudinary;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.cloudinary.Cloudinary;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class FileUploadManager implements FileUploadService{
+	
+	private final Cloudinary cloudinary;
+	
+	@SuppressWarnings("unchecked")
+	public String uploadFile(MultipartFile multipartFile) throws IOException{
+
+		Map<String, Object> uploadResult = cloudinary.uploader()
+		        .upload(multipartFile.getBytes(), Map.of("public_id", UUID.randomUUID().toString()));
+
+		String publicId = uploadResult.get("public_id").toString();
+		String url = uploadResult.get("url").toString();
+
+		// çalışmıyo cloudinary.url().transformation(new Transformation().width(100).height(150).crop("fill")).generate("olympic_flag");
+		return publicId;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Map<String, String> uploadFileInfo(MultipartFile multipartFile) throws IOException {
+		Map<String, Object> uploadResult = cloudinary.uploader()
+		        .upload(multipartFile.getBytes(), Map.of("public_id", UUID.randomUUID().toString()));
+
+		String publicId = uploadResult.get("public_id").toString();
+		String url = uploadResult.get("url").toString();
+
+		Map<String,String> image = new 	HashMap<String,String>();
+		image.put(publicId, url);
+		// çalışmıyo cloudinary.url().transformation(new Transformation().width(100).height(150).crop("fill")).generate("olympic_flag");
+		
+		return image;
+	}
+
+
+}

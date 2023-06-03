@@ -1,0 +1,11 @@
+package com.freeSite.business.dtos.requests.filters;
+
+import java.time.LocalDate;
+
+public class CandidateWithDetailsResponse {
+	private Candidate candidate;
+	private Experience experience;
+	private Technology technology;
+	private School school;
+
+}

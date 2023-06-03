@@ -1,0 +1,14 @@
+package com.freeSite.business.dtos.requests.filters;
+
+import com.freeSite.entities.Candidate;
+import com.freeSite.entities.Experience;
+import com.freeSite.entities.School;
+import com.freeSite.entities.Technology;
+
+public class CandidateWithDetailsResponse {
+	private Candidate candidate;
+	private Experience experience;
+	private Technology technology;
+	private School school;
+
+}

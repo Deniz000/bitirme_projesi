@@ -1,0 +1,21 @@
+package com.freeSite.business.dtos.requests.filters;
+
+import com.freeSite.entities.Candidate;
+import com.freeSite.entities.Experience;
+import com.freeSite.entities.School;
+import com.freeSite.entities.Technology;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructors
+public class CandidateWithDetailsResponse {
+	private Candidate candidate;
+	private Experience experience;
+	private Technology technology;
+	private School school;
+
+}

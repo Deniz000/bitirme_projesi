@@ -12,6 +12,7 @@ import lombok.Setter;
 public class GetAllCandidateResponse {
 	private int id;
 	private int jobSeekerId;
+	private String imageUrl;
 	private String coverLetter;
 	private String github;
 	private String linkedIn;

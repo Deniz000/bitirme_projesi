@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -28,10 +29,10 @@ public class Candidate {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
     
-    @OneToMany(mappedBy="candidate", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy="candidate", cascade = CascadeType.ALL)
     private List<Experience> experiences;
 
-    @OneToMany(mappedBy="candidate", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy="candidate", cascade = CascadeType.ALL)
     private List<School> schools;
     
     @OneToOne
@@ -41,7 +42,8 @@ public class Candidate {
     inverseJoinColumns = 
       { @JoinColumn(name = "job_seeker_id", referencedColumnName = "id") })
     private JobSeeker jobSeeker;
-    
+    public String imageUrl;
+    @Lob
     private String coverLetter;
     private String github;
     private String linkedIn;

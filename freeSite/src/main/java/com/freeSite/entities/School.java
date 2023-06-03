@@ -1,7 +1,5 @@
 package com.freeSite.entities;
 
-import java.time.LocalDate;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -38,9 +36,9 @@ public class School {
 
 	private String department;
 
-	private LocalDate startDay;
+	private String startDay;
 	
-	private LocalDate endDay;
+	private String endDay;
 	
 	private float grade_avarage;
 	
